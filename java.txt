@@ -1,0 +1,2162 @@
+java and oops
+		/* author jay shah- */
+    pop
+
+  1) any data direct access by functions it is not good
+     in concept of the security
+
+   oop
+   
+  1) data can be access by object with functions so data security 
+     and accessiblity 
+    
+   
+
+
+1) data hinding                       
+2) abstraction
+3) encapulation
+4) tightly encapulation
+5) IS-A Relationship
+6) HAS-A Relationship
+7) Methoad signature
+8) overloading
+9) overriding
+10) static control flow
+11) interface control flow
+12) constructor
+13) coupling
+14) cohesion
+15) type -casting
+
+-----------------------------------------------
+-----------------------------------------------
+
+1) data hidding
+
+  -> our internal data should not go out directly this 
+     oop feature called as data hidding
+   
+  -> after authentication outside person can acess our internal data
+   
+  -> ex> after providing proper username password we can 
+          able to access our gmail inbox information
+      
+     even thos we are vaild customer of bank we can not
+     able to access our account information and 
+     we can access others account information
+
+  ex. difine varible as private 
+      by declaring data member(varible) we can achive the data hidding
+
+
+
+      public class acoount {
+             
+		private double balance;
+                     
+                public double getBalance()
+`		{
+	             correct validation
+		     return balance;
+		}	
+       };
+
+
+    advantage > security of data
+
+    Note : recommendated decalre data member (varible) as private always;    
+-----------------------------------------------
+----------------------------------------------
+
+2) Abstraction
+
+      only top level of information only shared
+      but how information made we are should not shared
+  
+
+       4 crore net worth but we not suppose to 
+       declare how they from  made means
+       property + FDS + incomes + Bank balance    
+
+       => hide the internal implmentation and
+          highlights the set of services
+
+      We suppose to use the function but not need to know about the
+      internal working
+          
+      maitance is easy abstraction
+       
+       advantage of abractions
+            
+
+       1) we can achieve security because we not highlating our internal implementation,
+       2) without affectiong person we can able to perform any types
+           of change in our internal system  and enchament become easty
+       3) improve the easyness our system 
+
+        
+        By Using interface and abstract the classes we can implement abstraction
+    
+ --------------------------------------------------------------------------------------------------------------         
+
+3) Encapulation
+
+
+     Data Hinding + abstarction = Encapulation      
+
+     the process of binding data and behavior in one unit
+     
+     student data and behavior in one capsul.
+
+
+      class student
+      {
+           data member(varibles);
+
+           behaviours (methods);
+
+	}   
+
+   Every Java class is example of encapulation.
+
+ 
+    Ex. 
+      
+          public class Account
+	{
+ 		private double balance;  // data hiding
+
+                public double getBalance()
+		{
+			//validation(for right person or wrong person)
+			return balance;
+		}
+			
+		public void setBalance(double balance)
+		{
+ 			this.balance=balance;
+		}
+	} 
+
+       Advantage :
+                  1) we can achieve security
+ 	          2) enhancement become easy and improves mentionablity of application		
+   
+       dis-advtange:(slowedown execusation)
+
+			it is increase lenghth the line of the code
+			and slow studdown the executaion
+		
+
+		Ex.	trafser 10000 a account to b
+                         
+			1) login id with password			
+			2) Enter the Otp
+			3) Trasancation password
+	
+		Time taking in this all process that why it is not good	 		                
+ 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 4) Tightly Encapulated class
+		
+	In class each and every varible declare as Private  Only
+        wherater class contenting getter and setter method not
+
+	public class a
+	{	
+		private double bal;
+		public double getBalance()
+		{
+		}
+	}
+
+ --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
+5)  IS-A relation ship
+    
+   Inheritance
+
+   How to implement With IS-A relation ship
+
+   Advantage
+
+   Code Reuseblity only
+
+   By key word extends we can use the inheritance
+
+   class P
+   {
+      public void m1()
+      {
+        s.o.p("parent");
+      }
+  }
+  class C extends P 
+  {
+      public void m2()
+      {
+         s.o.p("child");
+      }
+  }
+  class Test 
+  {
+     public static void main(String args[])
+     {
+         // case 4 important
+          
+        1)   P p=new P();
+           p.m1();   /// valid;
+
+           p.m2(); // child method are not defaulted  
+                     available for parent
+
+           Complie time error that m2 methoad not found in class P
+
+         2)C c=new C();
+           c.m1();   // valid method
+           c.m2();    // valid
+
+         3)
+          
+          Most Imp  this 
+
+           P p=new C();
+
+           p.m1(); // valid method
+           //
+              parent reference(p) can
+              used to child whole object(C)
+              but you can not child specific 
+              methods
+
+            p.m2(); // invaild method
+           
+           this apporch only is polymorphism
+         
+         4)
+
+           C c1=new P();
+           //
+           Incompotable types found
+           the P require the C
+           
+           child reference can not
+           used to parent
+
+     }
+  } 
+
+  Loan Module 
+
+   WithOut Inheritance
+
+   Loan -> vehicle -> car -> personal 
+
+
+   class VehicleLoan {
+     300 methods
+   }
+   class  CarLoan{
+     300 methods
+   }
+   class personalLoan{
+     300 methods
+   }
+
+  // 900 methods and 90 hours for development
+ 
+   With Inheritance code
+
+   there are 250 methods are most Common
+
+   Class Loan {
+     250 common methods
+   }
+   class vehicle loan extends Loan {
+    50 methods // 300 methods
+    by default Loan gets 250 methods
+   } 
+   class HousingLoan extends Loan {
+    50 methods // 300 methods
+    by default Loan gets 250 methods
+   }
+    class PersonalLoan extends Loan {
+    50 methods // 300 methods
+    by default Loan gets 250 methods
+   }
+
+   only 150 rewrite new methods are only
+   code redundancy 
+
+   JAVA API implement JAVA inheritance
+
+
+   Object Class is root for all class
+
+   Object class has many classes
+
+   1) string
+   2) StringBuffer
+   3) Throwable
+      3.1) Exception
+
+  Object class has 11 methods only
+
+  1)
+  Object class root for all java class
+  2)
+  Throwable class define most common
+  method which are require for the
+  exception classs
+
+
+  class A extends B,C // Invalid
+
+  Java class cant inheritate more than
+  one class so mutiple can not 
+  support
+
+  Every class is child of
+  Object .....
+
+  Class A extends B
+  { }
+
+  if extends keyword is not used then
+  only Class is child of Object class
+  Then It is become indirect child 
+  of Object class
+
+
+  Class A
+  {
+     Then we can say that
+     Class A is extends the Object class
+  } 
+
+
+  eithar,Indirectly or directly java
+  want provide support for
+  Inheriatance with respect to
+  the classes
+
+  Why java want provide support for multiple inheritance?
+
+-> For ambigutity Error reason
+   java doest not support the Multiple Inheritance
+
+
+   Thats why the interface concept is come
+
+   Interface A
+   {
+
+   } 
+   Interface B
+   {
+
+   }
+   Interface C extends A,B
+   {
+
+   }
+
+
+   Java provide support for Mutliple inheritance
+   with repect to the interface with example of 
+   above
+
+   Why amigituty problem is not interfaces???
+    
+    Interface PI
+    {
+         m1();  // only declare
+
+    }
+
+    Interface PI2
+    {
+        m1();   // only declare
+
+    }
+
+    Interface c1 extends PI,pI2
+    {
+         m1()
+         {    
+          // only we can implement one methods
+              thats why it is not ambigutiy error
+
+
+         }
+    }
+
+----------------------------------------------------------------------------------------------------------------
+VIDEO-3---------------------------------------
+
+  6))))))))))))))))))))))))))))))))))))))))))))
+    Has-a RelationShip
+
+
+    Very Commonly Used Realation Ship
+
+   car has a engine class reference
+
+   Class Engine {
+      Engine(){
+
+      }
+   }
+   Class Car{
+    Engine e=new Engine();
+
+   }
+
+   Point to Remember
+
+   1) Has relation ship knows
+      as composition or aggreigation
+   
+   2) Their is no specific key word
+      for has-a relation ship
+
+      mostly use we New key Word
+
+   3) Advantage is Reusablity of the code
+
+
+  example
+    
+    Class Engine{
+
+    }
+    Class car Extends engine{
+      Engine e=new Engine();
+      //
+      class car has Engine 
+      reference
+             
+
+
+    }
+
+
+   what is different between 
+   aggerigation and Composition?  
+
+  Compostion(Strong association)
+
+   Univeristy (Conatainer Object)
+
+   has a
+
+   CS departmrnt - MATHSdepartment
+   (Conataint      (Conataint 
+     Object)         Object) 
+  
+  If university is going to closed
+  then department also closed automatically
+
+  Because the it has 
+  Strong Association with Object
+  
+  University Has Strong assocition
+  With the department
+
+  Container and Conataint object
+  are strongly associate and its
+  storng assocition it called 
+  the Compostion
+
+  Aggrigation(weak association)
+  
+
+  Department (Container Object)
+
+  has a
+
+  Proffessor1 --- professor2 ---ProfessorN
+  (Containt
+  Object )
+
+  Deparment closed then professors may
+  work in different department or unviserty
+
+  with existing container Object
+  if their is a chance of existing
+  containt Object it is called
+  than container Object and containt
+  Object are weakly Associtate and
+  this weak assocition called the
+  aggerigation
+
+   
+   In compostion
+   Conatiner Object Holds directly
+   Containt object.
+
+   In aggerigation
+   Container Object Holds just'
+   references of the content the object
+
+   
+   Main Purpose of the Has-a Relation Ship
+
+   when you want the total functinality
+   then use the IS-a RElation ship
+
+   When you want use of partial Functionality
+   then use the has-a relation ship
+
+
+   IS-A VS HAS-A
+   --------------
+
+   total functinality of the classs
+   automatically then we should go
+   for IS-A relationship
+
+   Person 
+   {
+
+   }
+   Student Extends PErson
+   {
+     Person total functionality use the student
+   }
+
+   If you want to the part of the funcnality
+   then go for hAS-a realtion ship
+
+   specific functionality
+
+----------------------------------------------
+----------------------------------------------
+6.1)
+/*  Author jay shah */
+
+   Method Signature
+    
+   public static int m1(int i,float f) ->this is method
+
+   which are the method signaturec
+
+   method singnature containt only
+   method name followed by argument types
+   (m1)                     (int,float)
+   
+    
+   return type is not part of method 
+   singanture in java
+
+
+    
+   Where is the method going to be Use?
+
+   Class test
+   {
+       public void m1(int i){
+
+       }
+
+       public void m2(String m){
+
+       }
+
+       public static void main(Stirng args[])
+       {
+         test t=new test();
+         t.m1(10);
+         t.m2("durga");
+         t.m3(10.5); 
+         /*
+
+         complier check the
+         their the no m3 method
+         in Method table
+
+         Complier Error: 
+         can not find the symbol
+         method m3(double)  in
+         which location class test
+
+         */
+       }
+   }
+
+  For Every class Complier
+  create the method table
+
+  Complier will use the 
+  method signature to reslove the 
+  method calls
+
+  class test
+  {
+    public void m1(int i){
+
+    }
+    public int m1(int j){
+         return 10; 
+   }
+         
+    public static void main(String args[]) {
+      test r=new test();
+      r.m2(10); /*
+
+      complie time error:
+      within the two methods with 
+      the same signature are not allowed
+
+      method m1 is already  define in class Test
+
+     */
+
+    }
+
+  }
+
+--------------------------------------------------
+ 7) Overloading (reduce the complexity of Programming)
+
+
+    both method have same name but
+    different argument its called the overloading
+
+    C laguage have method overloading ?
+
+         abs(10.5);
+    o/p->10.5
+        abs(-10.5);
+    o/p-> -10.5
+
+      only value ...not sign
+
+    abs availble for the 
+    abs(int i) in c
+    abs(long i) 
+
+     to method have same name but it not 
+     allowed in c
+
+     In java
+
+      same abs method for int,long and float
+
+      abs(int i)
+      abs(long l)  } example of method overaloding
+      abs(float f)
+     
+     in c method overlling in not available
+     we cant declare multiple methods
+     with the same name but different
+     argument the types
+
+     if a thier is chage in argument
+     then we go for the new method name
+     which increases complexity of the programming
+     
+     having overloding concept in java
+     reduces complexity of the Programming
+
+     ex..
+
+     class test 
+     {
+       public void m1()
+       {
+            s.op.("no argument method")
+       }
+       public void m1(int i){
+          s.o.p("single arg")
+       }
+        public void m1(int i,int j){
+          s.o.p("two arg")
+       }
+
+       public static void main(String args[])
+       {
+           test t=new test();
+          /*
+            
+          */
+           t.m1();
+           t.m1(10);
+           t.m2(10,20);
+       }
+
+     }
+
+
+   Conculsion :->  
+
+   same reference same object
+   
+   in method overloding
+   method resolution always take care by the complier
+   based on the reference the type
+
+    method resolution -> which method has to 
+                          be exicute
+
+
+   complier time , static are early binding polymorphism
+
+
+   point to remember
+
+   in method overloading
+
+   method resolution taken care by the complier
+   on basic of the reference type we can worry 
+   about run time object   
+
+video -->4
+---------------------------------------------------------------------------------------------------------------
+  
+  Internal Loophole for method overloading
+
+1) case
+
+     class test {
+       public void m1(int i) {
+           s.o.p("int arg")
+       }
+       public void m1(float f){
+          s.o.p("float arg")
+       }
+
+       public static void main(String args[]){
+       test t=new test();
+       t.m1(10);  // int arg
+       t.m1(10.5)  // float arg
+       t.m1('a');  // method chance of calling
+
+          mean it take as  m1(int)
+          because here String not avaible
+          and its promote to the int
+
+
+       t.m1(10L) // float arg  
+       t.m1(10.5) // complie time error
+
+    
+      auto matically promosion
+      
+      all posssibly promosion in overloadinf
+{
+  /* automatic promostion in overloading*/
+
+      byte - > short -> int -> long
+      -> float -> Double
+
+      char->int
+}
+
+
+
+            }
+     }
+
+
+case 3)     
+
+
+2) case
+
+
+    public test
+    {
+           public void m1(String s){
+              s.o.p("string");
+
+           public void m1(Object o){
+               s.o.p("object");
+
+       public void static void main(String args[])
+       {
+           test t=new test();
+           t.m1(new Object()); // object vesrion
+           t.m1("string");  // string 
+           t.m1(null);
+           /* 
+            Object(Parent)-> String(child);
+
+            String is called 
+           */
+                
+
+       }
+               
+           }   
+        }
+    }
+
+case 3)
+
+    public test    {
+           public void m1(String m1){
+              s.o.p("string");
+
+           public void m1(StringBuffer Sb){
+               s.o.p("String Buffer object");
+
+       public void static void main(String args[])
+       {
+           test t=new test();
+           t.m1("durga"); // String
+           extact  match called Durga
+           t.m1(new StringBuffer("durga"));
+           // StringBufffer      
+           //          reference to m1 is ambiguios
+
+       }
+               
+              
+        }
+    }
+	/* author jay shah- */
+    
+
+case 4)
+
+     public class test
+     {
+        public void m1(int i,float f) {
+           s.o.p("int and float");
+        }
+
+        public void m2(float f,int i){
+            s.o.p("float and int");
+        }
+        public static void main(String args[]){
+
+            test t=new test();
+            t.m1(10,10.5f); // int and float
+            t.m1(10.5f,10); // float and int
+            t.m1(10,10);
+            // complie time error
+                reference to m1 is amibigiuos
+
+      byte - > short -> int -> long
+      -> float -> Double
+
+      char->int
+
+
+            t.m1(10.5f,10.5f);
+            float->int not possible promosion
+            //complie time error
+
+
+        }
+     }    
+
+5) case 5
+
+    public class test {
+      void m1(int x){
+      s.o.p("gerenal method");
+    }
+    void m2(int.. x) {
+      s.o.p("varages method");
+
+   public static void main(String args[]){
+        test t=new test();
+        t.m1() // null so general method is called
+        t.m2(10,20); // any int number so... where arg method
+        t.m1(10);
+        /// so gereral method 
+
+        because gm are come in first version
+        that why its win
+        but int.. come on lastest version
+
+   }
+    }
+
+    varage method get least prority
+    it is extactly same as the
+    switch case where default
+
+
+    case 6)
+
+   class animal {
+
+   }
+   class money extends animal {
+   }
+
+   class test {
+
+     public void m1(Animal a){
+      S.o.p("Animal");
+     }
+
+     public void m1(Monkey m) {
+       s.o.p("Monkey");
+     }
+
+     public static void main(String args[]){
+     test t=new test();
+    
+     Animal a=new Animal();
+     t.m1(a); // animal version
+
+     Money m=new Money();
+     t.m1(m);  // money;
+
+     Animal a1=new Monkey();
+
+     Parent reference child object
+
+     t.m1(a); //  Animal 
+
+     because
+
+     Inoverloading method resolution
+     is always referece type
+     based on the complier time
+}
+}
+video 5
+----------------------------------------------------------------------------------------------------------------
+9) overridig
+
+
+   parent class methods by default 
+   available to child threw inheritnce
+
+   some time child may not happy
+   with parent method and
+   child implement own method
+   its called overriding
+
+
+   class p{
+      public void property()
+      {
+        s.o.p("land+cash+gold");
+      }
+      public void marry()  --> overriden method
+      {
+        s.o.p("siba laxmi");
+      }
+
+    }
+
+    class c extends p{
+
+    public void marry() --> overriding mehod
+    {
+      s.o.p("charmi");
+    } 
+
+}
+
+the parent class  method which is
+overridern method and 
+the child class method  which is
+overriding method
+
+  class test
+  {
+    public static void main(String args[]) {
+
+      Parent p=new Parent();
+      p.marry(); // parent refernce and parent object
+                  // Sub laxmi
+
+      Child c=new  Child();
+      c.marry(); // child method
+
+      Parent p=new Child();
+      p1.marry() // charmi
+
+      /*parernt refernce holds for the child
+      object but we can only access the
+      parent reference methods*/
+
+
+      what is role of complier ?
+      ->complie time check syntax
+        maary method is in parent or not 
+
+      what is role of jVm?
+      ->check run time object   
+
+
+      base one the run time object
+      method resolution is used
+      that why it is called
+      run time polymorphism,
+      late binding
+
+      method resolution take care
+      by the JVM based on Runtime Object
+      that why overriding consider as
+      RunTime polymorphism..or dynamic
+      polymorphism or late binding
+
+
+
+      method resolution take care
+      by the Complier based on the Referece type
+      so it called the overloading
+
+ *)
+ rules for overriding
+
+ 1) in overriding
+    method name and arguments types
+    must be matched that is method
+    signature must be same
+
+ 2) return type must be same
+    thid rule is old
+    version 1.2,1.4
+
+    but it is allowed from 1.5 nd 1.6;
+    
+    co-varitent return type is alos allowed
+
+    co-varint type
+    ex.
+
+    class p
+    {
+       public Object m1()
+       { 
+       return null;
+       }
+    }
+    class c extends p
+    {
+       public String m1()
+       {
+           return null;
+       }
+    }
+
+    ex2,
+
+    parent class method
+    {
+      return type; // iS Object
+    }   
+
+    child class method
+    {
+      return type // allowed type string // String  Buffer
+
+      valid :->  parent return type -> object
+                 child return type-> String/stringBuffer
+
+      Invaild:-> parent return type->  String
+                 child return type-> Object
+
+      Invaild:-> parent return type-> doublr
+                  child return type-> int
+
+       co-varient return type concept only 
+       allowed for the object type 
+       not for premitives types
+
+
+    }
+     }
+  }
+
+
+  3) modifier
+
+    [1] 
+    class p 
+     {
+       priavte void m1(){
+
+       }
+     }
+     class c extends p {
+   
+       private void m1()
+       {
+          /*
+            vaild but not 
+            overring .......  
+          */
+       }
+
+     }
+     
+     parent class private method
+     not avaible to the child and hence
+     overrding concept not appicable 
+     foe the private methods
+
+    [2]
+
+     class p
+     {
+       public final void m1(){
+
+       }
+     }
+     class c extends  p{
+      public void  m1() {
+          
+           not allowed to 
+           change this method..
+     /* m1 in c can not
+        override m1 in p */
+
+        overriden method is final
+
+
+      }
+     } 
+
+     we can not override fianl
+     method of parent class in child classe
+
+  [3]
+
+     abstract class p
+     {
+        public abstract void m1();
+     }
+     class c extends p
+     {
+         public void m1(){
+           /* vaild */
+         }
+     }
+
+     parent class absract
+     method we should override 
+     in child class to provide
+     implementation
+
+
+     [4]
+
+     class p
+     {
+        public void m1()
+        {
+
+        }
+     }
+     class c extend p
+     {
+        public abstract void m1();
+           /* 
+           we can override non-abtract method  as abstact method  */
+     }
+   }
+   class subC extends c
+   {
+      public void m1()
+      {
+
+      }
+   }
+
+
+   when we dont want parent 
+   method and we dont no about
+   the implement 
+
+   we can override non-abtract method
+   as abstact method  
+
+   the main advantage is this apporch is
+
+   we can stop avalibilty of
+   parent method implementation
+   in the to the next level 
+   of child classes
+    
+
+    [5]
+
+    parent method is final
+
+    child method is nofinal
+
+    not vaild for  override
+
+            parent method                 child  methods
+               |     |
+    valid:- nofinal -> override -> final
+    invaild :- final->override-> non-final
+
+    vaild:- abstract -> override -> non-abstract
+    vaild :- non absract-> override ->  absract
+
+    In overrriding the following
+    modifiers want keep any restrictions
+
+    1) synchronized
+    2) native
+    3) strictfop
+
+    [6]
+
+       static key word
+
+       class p
+       {
+         public void m1(){
+            
+   
+
+         }
+       }
+       class c
+       {
+           void m1(){
+             
+             /* Invaild */
+     CE:-> m1() in c cannot 
+           override in m1()
+           in class p
+
+           to assign wwaker
+           acesss previllage was
+           public 
+             
+          }
+       }
+  
+  while we can not decreasing
+  the scope of access specifier
+
+  but you can increasing the
+  scope of the access specifier
+
+   while overriding we cant reduce
+   the scope of aceess modifier
+   but we can increase the scope
+
+   
+    [6]
+
+    1) private
+    2) default
+    3) protected
+    4) public
+
+    parent      child
+    method      method
+
+    public      public
+
+    protected    protected/public
+
+    default      default/protetected/public
+
+    private      overriding is not for the
+                 private methods
+
+
+
+     why we can not
+     reduce the scope 
+     of access specifier?????????????
+
+
+      class  p
+     {
+        public void m1()
+        {
+
+        }
+     }
+     class c extends p
+     {
+
+       but if
+       void m1()
+       {
+
+       }
+
+     }
+     public class test{
+      
+      public static void main
+      (String args[])
+      {
+         p p1=new c();
+         p1.m1();   // parent methhocalled
+
+          
+         p1.m1(); where child has m1()
+                  method
+                  it genreate the ce
+                  error that why
+                  we can not reduce the
+                  scope of the operator 
+      }
+
+     }
+    
+   Overriding should not
+   affecting the outside
+   the people 
+
+video 7-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+   [7]
+
+   
+   1) Throwable
+
+      1.1) Exception
+         1.1.1) Runtime exception
+           1.1.1.1) Null Pointer Exception
+      1.2) IO Exception
+      1.3) Interrupted Exception
+
+
+
+      1.2) Eroor
+          1.2.1) Virutal machine error
+          1.2.2) out of memory
+          1.2.3) stack overflow
+
+   checkExceptions::--
+
+   Runtime Exception
+   and its child class 
+   and Error and its child 
+   class are unchecked Excpetion
+
+    [1]
+    p:-public void m1() throws Exception
+    c:-public void m1()
+
+    vaild
+
+    [2]
+    p:-public void m1()
+    c:-public void m1() throws Exception
+
+    invaild
+
+    [3] 
+    p:-public void m1() throws Exception
+    c:-public void m1() throws IoException
+    
+    vaild
+
+    [4]
+    p:-public void m1() throws IoException
+    c:-public void m1() throws Exception
+    
+    invaild
+    
+    [5]
+    p:-public void m1() throws IoException
+    c:-public void m1() throws FileNotFoundException
+
+    vaild
+ 
+     if child class methods throws any 
+     checked exception then commplusory 
+     parent class methods should
+     thows same checked exception 
+     or its parent otherwise 
+     we will get complie time error
+     but there are no restraction for
+     unchcked exception
+
+What is an internal reason?
+
+class p
+{
+   public void m1() throws IOException
+   {
+
+   }
+}
+class c extends p
+{
+
+  
+}
+public test
+{
+   P p=new C();  
+  try{
+      p.m1(); 
+      }
+   catch ()
+   {
+
+   }
+
+}
+   
+ if parent method
+ throws Exception
+ then child method
+ should throw same
+ exception or its child
+ exception so wouldnt
+ affecting the outside
+ the people
+
+  8)
+
+   With Static key word
+
+
+   class p
+   {
+     public static void m1(){
+
+     }
+   }
+   class c
+   {
+    public void m1() {
+      /*
+       Invaild
+
+      m1() in can not overide
+      m1() in p :overriden
+           method is static
+      */ 
+    }
+   }
+
+  class level method
+  we can override
+  in instance type of method 
+  
+   
+   class p
+   {
+     public void m1(){
+
+     }
+   }
+   class c
+   {
+    public static void m1() {
+      /*
+       Invaild
+
+      m1() in can not overide
+      m1() in c:overring
+           method is static
+      */ 
+    }
+   }     
+
+   not allowed -
+                |
+        
+   static-> overriden -> non-static
+   static-> overriding -> static
+
+   parent class method->static
+                               } method
+   child class method-> static 
+
+   
+   if both are parent and 
+   child class are static
+   then we wan not get any
+   complie time error its
+   seems overriding compicalble
+   for static method
+   but is not overriding
+   it is method hiding
+
+  ex....method hiding
+
+  class p
+   {
+     public static void m1(){
+
+     }
+   }
+   class c
+   {
+    public static void m1() {
+      /*
+       vaild
+       it is not overriding
+       it is method hidding
+    }
+   }     
+
+  what is differernt between
+  method hidding and overrinding ???????
+
+    class p
+   {
+     public static void m1(){
+       s.o.p("parent")
+     }
+   }
+   class c
+   {
+    public static void m1() {
+      /*
+       vaild
+       it is not overriding
+       it is method hidding
+       s.o.p("child");
+    }
+   }
+   class test
+   {
+     public static void main(String args[])
+     {
+       p p=new p();
+       p.m1(); // parent method called
+
+       p p1=new C();
+       p.m1();  // parent
+
+       if it the non-static method
+       are any method then it always
+       called the child classesss
+       because it is overriding
+       and In overrriding
+       method resolution take care by
+       jvm basad on the run time
+       object..child calling in 
+       this case
+
+       but 
+
+       here method are static 
+       and method resolution take 
+       care by the complier 
+       base on the reference type ...
+       so parent method is called
+
+
+        
+     }
+   }     
+
+   all rules  of method
+   hiding excatly same as
+   overridig expect the following
+   differences
+
+   Method hidding             Method Overriding
+
+
+   Parent and                  parent and
+   child method                child method 
+   should be                   should not
+   static                      be static
+
+   method resolution           method resoluion
+   take care by                take care by
+   compiler based              the jVm Based on 
+   on reference                 the run time 
+   type so it                   Object so 
+   called as                   called as Method Overriding
+
+   complie time                   Run time 
+   static Time                     Dynamic
+   or early binding                late
+  poly-morphism                    Polymorphism  
+ 
+
+  OLD AND                          OLD GO 
+  NEW REMAINS                      NE AND NEW REAMAINS
+
+video 7---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  OVERRIDING WITH 
+  VERRAGE(1.5) METHODS
+
+  m1(int x)
+  {
+
+  }
+
+  m1(int... x)
+  {
+       not overriding
+       then overloding
+
+      if both are same then
+      only it is overriding
+
+  }
+
+   we can override verarge method
+   with onther verarge method onlt
+   if you are trying with normal
+   method then it will become
+   overloading but not overriding
+
+   class p
+   {
+      int x=888;
+   }
+   class x extends p
+   {
+      int x=999;
+   }
+   public class test
+   {
+      public static void main(String args[])
+      {
+         p p=new p();
+         s.o.p(p.x);-> 888
+
+        if varible satic or not static
+        varible resolution always
+        take care by the only 
+        the complier by the refernce type
+
+         c c=new c();
+         s.o.p(c.x)-> 999
+
+         p p=new p();
+         s.o.p(p.x)->888
+
+      }
+   }
+
+
+some cases you should know
+
+--------------------------------------
+
+what is poly-morphism??????
+
+  poly-> is a greek world
+         many forms
+
+        one name but multiple forms  is a concept of the polymorphism
+
+    1) method name is same
+       we can but we can apply 
+       for the different types
+       of argument(Overloading 
+
+       ex.
+
+       abs(int)
+       abs(long)
+
+     2)  
+     method signature is  same but in parent class one type of inplementation and in the child class onther type of implementation (Overriding)
+      
+      ex.
+
+       class p
+       {
+          public void m1()
+          {
+            s.o.p("sub-laxmi");
+          }
+       }
+        class c extends p
+        {
+          public void m1()
+          {
+          s.o.p("charmy");
+          }
+        }
+
+    ex. 3)
+
+    Usage of parent reference 
+    to hold child object is
+    a concept of polymorphism
+
+    List l=new ArrayList();
+    List l=new LinkList();
+    List l=new Stack();
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  What is Advantage of parent refernce to holds
+  child Object ?????
+
+  class P {
+
+     public void m1()
+     {
+       s.o.p("parent");
+     }
+  }
+  class C extends P
+  {
+     public void m1()
+     {
+       s.o.p("child");
+     }
+  }
+  public class test
+  {
+
+
+  P p=new c();
+  p.m1();  // valid 
+  p.m2();   // invalid
+
+  -> parent refernce can be used to hole
+     child object but by using
+     that refernce  we can called only
+     parent class methods only
+
+   C c=new C();
+   c.m1();  // valid
+   c.m2();   //valid
+
+   -> child reference to the child object 
+      we can called the both of child
+      and parent methods
+  }
+}
+
+  When We should go for 
+  parent refernce to the hold child Obeject
+  
+  if we dont know exat run time type
+  of Object then we should go for parent
+  refernce
+
+  P p=new c();
+
+  ex.
+
+  the 1 element in ArrayList can be
+  any type(String Obeject , Student Object,Customer Object) hence 
+  the  return type of get method
+  id Object which can hold any Object
+
+  Object o=l.get(0);
+  
+  BEAUTIFUL DEFINATION fUNNY
+
+  A boy start love with Friendship But love same
+  word Friendship but attitude 
+  is diffrent 
+
+
+  VIDEO 8----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+   Two feature only use the
+   high level only frame Work  
+   level Mvc
+
+   1) Couping 
+   2) Cohesion
+
+
+
+   What is mean By Couping ?
+
+   i want to measure hight
+   then meter,cm and
+
+   i want to measure milk 
+   then liter,ml
+
+   Measurant ment is couping
+
+   degree of the dependency
+   between  two componets is called the couping
+
+   1) Tightly Coupling -> More Dependency
+   2) loosly Coupling  -> less dependeny
+
+   -> which one is good Tighly Coupling or lossly Coupling for 
+    programmming practice?
+    
+    class A {
+
+     static int i=B.j;
+    }
+
+    class B{
+	static int j=c.k;
+    }
+    class C{
+	 
+         static int k=D.m1();
+  }
+     
+    class D {
+{
+    public static int m1() 
+    {
+        return 10;
+    }
+
+}
+
+    They are tightly coupling example 
+    tightly couping is worst programming
+    practice 
+
+    2 BHK -> tightly coupling
+
+    flat system has more dependcy for 
+    any work so it not bearble
+ 
+    own house -> lossely coupling
+   
+    you have to less depency for work
+    
+    Tightly coupling disadvantage
+   
+  1) enhacement is difficult because each
+     are dependent on each
+  
+  2) supress the use the reusablity 
+     of the code
+
+  3) Maintence of application is hard
+      
+         
+   **
+  
+   Cohesion
+  
+   low cohesion -> mix functionality
+
+ 
+   MVC pattern flowed high cohesion
+
+   for Every component
+   A clear well define functionality is   
+   define then  component set to the follow
+   high level cohesion
+
+   like log module
+	business module 
+   
+   design own Email project
+
+   Name of Servlet 
+  
+   Total servlet
+
+   login 
+   validation
+   dispaly error page
+   dispaly error page
+   .
+    . .
+
+    All are in one servlet
+    it has 70 lk code
+    
+    this is example of low cohesion
+    because it has mix functionallity
+    and it is very hard to change
+    small change is very difficult
+
+   problem on total servlet
+ 
+  1) enhancement is diifuclt
+
+  
+  total servelt divide in
+
+  1) validate servlet
+     
+     
+     
+  2) logiin servlet
+        
+   login success - > sucess.jsp 
+     
+   login error -> error.jsp
+
+  
+   high cohesion advange
+
+   1) easy to enhancment
+   2) reusablity to of code is easy
+   3) maintance is good
+
+   
+  Alway lose coupling 
+  and high cohesion 
+  is a good programming
+  practice
+
+********************************************	
+********************************************
+*************************************
+
+   Object Type Casting 
+
+  3 Matra
+
+ 1) Object Type casting
+  
+ a)
+ 
+  Object o=new String("design");
+
+  we can use 
+  parent reference to hold child
+  object
+ 
+ b)
+   
+  we can use
+  Interface referrence
+  to hold implementd 
+  class object
+
+  Runnable r=new Thread();
+   
+
+  c)
+    valid casting or not?
+  
+  Object o=new String("durga");
+  StringBuffer sb=(StringBuffer)o;
+  
+  complie time error
+  
+  A b=(C)d;
+
+  A is class or Interface name
+  b is name of preference varible
+  C is class or interface name
+  d is reference varible name
+
+   2 active are doing here  
+
+  d object to C type
+  C type to A reference type
+
+  
+  3 condition are checked
+  
+  1) is conversion legal or not
+  2) reference is leagal or not
+  3) d and C have Must  relation
+   
+   ce: inconvertile types 
+       found : d required C
+  
+  Object o=new String("durga");
+  StringBuffer sb=(StringBuffer)o;
+
+
+  1) compiler - 2
+  2) Jvm -1 
+
+
+  Matra 1
+   
+    compile time checkig 1
+    
+    type of 'd' and 'C' 
+    must have some relation
+    either child to parent
+    or parent to child 
+    or same type otherwise
+    we will ce error inconvertable
+    type found : d required C
+
+  ex.
+
+  Object o=new String("durga");
+  StringBuffer sb=(StringBuffer)o;
+ 
+
+ 2) Manta 2
+  
+    refernce check 
+  
+   o and string buffer have parent 
+   and child relation 
+  
+   string r=new Sting("durga");
+   StringBuffer sb=(Sb)s;
+
+   String buffer and string have
+   no relation so ce error is 
+   genrate
+   
+     found: string
+     required : StringBuffer
+
+
+      A b=(C)d
+     
+     C must be same A
+     or 
+     C Derived of A
+    
+     other wise CE
+
+ ex.2****    
+
+   Object o=new Stirng("dirgsa");
+   StringBuffer sb=(String)o;
+   
+   String is not child of string
+   buffer so error incompatble types
+   found : string
+   required : String buffer    
+
+   Runtime : cLassCastException
+      
+   Runtime base on runtime object
+   which check by jvm
+
+   no complie type error but here
+   we have run time error
+
+  ex.2
+     
+
+   Object o=new String("durga");
+   Object o=(String)o;
+
+   valid \//
+
+
+   example based on three rulee
+
+           Object 
+          /       \
+      base 1     base 2
+       /\          /\
+  dev1   dev2   dev3 dev4
+
+     
+    Base2 b=new Dev4();
+
+  1)
+     Object o=(Base2)b;
+     
+
+      valid   
+
+  2) Object o=(base1)b;
+
+    error ce incomparible type
+    found : base2
+    required base1
+
+  3) Object o=(dev3)b;
+
+     Re: classCastException
+
+  4) Object b1=(base1)b;
+
+      CE: incomparitable type error
+
+  5) Base1 b1=(dev4)b;
+
+       CE: imc
+       found : dev4
+       required : BASE1
+
+   6) Base1 b1=(dev1)b;
+
+      Ce: inconvertable type
+      found : b  
+
+  High cohesion is always good programming 
+  practice
+
+    
+ ####################################
+ Video 9 
+   
+  when we are doing type 
+  casting what is doing in internally
+
+  String s=new Stirng("durga");
+  Object o=(Object)s;
+
+  in typecasting not create 
+  any new Object
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+ ######################################
+
+ Video 10)
+ ------------------------------------------------------------------------------------------------------------------------------
+
+  Static Control Flow
+
+  class base
+  {
+     static int   
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+  
+
+
+-
+
